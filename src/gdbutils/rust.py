@@ -1,13 +1,31 @@
+"""
+Utilities for debugging Rust programs.
+
+"""
+
 import gdb
 import typing
 
 
-def vector_data(
-    vector: gdb.Value,
-) -> typing.Iterator[gdb.Value]:
+class Vector:
+    """
+    Wrapper for easy processing of vectors.
 
-    vector_size = int(vector["len"])
-    start = vector["buf"]["ptr"]["pointer"]
-    for _ in range(vector_size):
-        yield start.referenced_value()
-        start += 1
+    """
+
+    def __init__(self, vector: gdb.Value) -> None:
+        """
+        Initialize a :class:`.Vector`.
+
+        """
+
+        self.vector = vector
+
+    def __len__(self) -> int:
+        return int(self.vector["len"])
+
+    def __iter__(self) -> typing.Iterator[gdb.Value]:
+        start = self.vector["buf"]["ptr"]["pointer"]
+        for _ in len(self):
+            yield start.reference_value()
+            start += 1

@@ -1,7 +1,7 @@
 [project]
 name = "gdbutils"
 version = "0.1.0"
-description = "GDB Python utilities."
+description = "Utilities for the GDB Python API."
 readme = "README.rst"
 requires-python = ">=3.10"
 license = {file = "LICENSE"}
