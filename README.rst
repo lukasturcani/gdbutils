@@ -8,9 +8,9 @@ Utilties for the GDB Python API.
 Installation
 ============
 
-The gdbutils library should be importable by GDB within a Python
-session. One way to do this is to add the path to gdbutils to GDB in
-the ``.gdbinit`` script
+The gdbutils library should be importable by GDB within the Python
+sessions it launches. One way to do this is to add the path to gdbutils
+to GDB in the ``.gdbinit`` script:
 
 .. code-block:: python
 
@@ -25,7 +25,7 @@ Usage
 
 First create the file ``src/gdbutils/_main.py``. This file is excluded
 from source control by the repo, as you are expected to edit it while
-debugging. It should define a ``main()`` function
+debugging. It should define a ``main()`` function:
 
 .. code-block:: python
 
@@ -38,7 +38,7 @@ debugging. It should define a ``main()`` function
 The ``main()`` function should contain the code you want GDB to execute
 during debugging.
 
-Next, once GDB is launched, run the following command
+Next, once GDB is launched, run the following command:
 
 .. code-block:: python
 
@@ -49,4 +49,4 @@ This will import the ``gdbutils.main`` script. The use of
 ``src/gdbutils/_main.py`` made while GDB was open will be propagated,
 as Python normally caches module imports. Importing the
 ``gdbutils.main`` module will run the ``main()`` function defined in
-your ``src/gdbutils/_main.py`` module.
+your ``src/gdbutils/_main.py`` file.
