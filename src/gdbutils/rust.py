@@ -26,6 +26,6 @@ class Vector:
 
     def __iter__(self) -> typing.Iterator[gdb.Value]:
         start = self.vector["buf"]["ptr"]["pointer"]
-        for _ in len(self):
-            yield start.reference_value()
+        for _ in range(len(self)):
+            yield start.referenced_value()
             start += 1
