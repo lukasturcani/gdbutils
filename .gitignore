@@ -1,0 +1,3 @@
+src/gdbutils/_main.py
+*.pyc
+*.egg-info

@@ -1,0 +1,28 @@
+[project]
+name = "gdbutils"
+version = "0.1.0"
+description = "GDB Python utilities."
+readme = "README.rst"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Lukas Turcani", email="lukasturcani@mailbox.org"}
+]
+
+[project.optional-dependencies]
+dev = [
+  "flake8",
+  "black",
+  "mypy",
+  "isort",
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+
+[tool.black]
+line-length = 71
+
+[tool.isort]
+profile = "black"
+line-length = 71
