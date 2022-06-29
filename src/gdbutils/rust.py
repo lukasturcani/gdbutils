@@ -37,8 +37,11 @@ class Vector:
             pointer -= 1
 
     def __getitem__(self, index: int) -> gdb.Value:
-        if index >= len(self):
+        if index >= len(self) or index < -len(self):
             raise IndexError("Index out of range.")
+        if index < 0:
+            index += len(self)
+
         pointer = self._start_pointer() + index
         return pointer.referenced_value()
 
